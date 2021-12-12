@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveBoard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="drawing-area"></div>
+        <div class="menu-btn">
+            <img class='menu-icon-burger' src="./icons/hamburger-menu.svg">
+            <img class='menu-icon-cross' src="./icons/close-line.svg">
+        </div>
+        <div class="menu scale-menu">
+            <img class='menu-icon pencil-btn' src="./icons/art-drawing-pencil.svg">
+            <img class='menu-icon drop-down pencil-drop-down' id='pend' src="./icons/line-angle-down.svg">
+            <img class='menu-icon drop-down pencil-drop-down' id='penu' style='display:none;' src="./icons/line-angle-up.svg">
+            <img class='menu-icon eraser-btn ' src="./icons/eraser.svg">
+            <img class='menu-icon drop-down eraser-drop-down' id='erd' src="./icons/line-angle-down.svg">
+            <img class='menu-icon drop-down eraser-drop-down' id='eru' style='display:none;' src="./icons/line-angle-up.svg">
+            <img class='menu-icon sticky-btn' src="./icons/note-book.svg">
+            <img class='menu-icon download-btn' src="./icons/download-to-storage.svg">
+            <img class='menu-icon upload-btn' src="./icons/upload-image.svg">
+            <img class='menu-icon undo-btn' src="./icons/reply-arrow.svg">
+            <img class='menu-icon redo-btn' src="./icons/forward-arrow.svg">
+            <div class="pencil-options">
+                <div class="pencil-color">
+                    <div class="black color-box"></div>
+                    <div class="red color-box"></div>
+                    <div class="blue color-box"></div>
+                    <div class="green color-box"></div>
+                    <div class="yellow color-box"></div>
+                </div>
+                <div class="pencil-thickness">
+                    <input type="range" id="pencil-thickness-range">
+                </div>
+            </div>
+            <div class="eraser-options">
+                <div class="eraser-thickness">
+                    <input type="range" id="eraser-thickness-range">
+                </div>
+            </div>
+        </div>
+        <div class="sticky-note-container">
+            <!-- <div class="sticky">
+                <div class="sticky-id">
+                    <div class="sticky-minimize"></div>
+                    <div class="sticky-close"></div>
+                </div>
+                <div class="sticky-media">
+                    <textarea spellcheck='false' class='sticky-text'></textarea>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

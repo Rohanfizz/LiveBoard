@@ -1,0 +1,207 @@
+*{
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+body{
+    margin: 0;
+    padding:0;
+}
+.container{
+    width: 100vw;
+    height:100vh;
+}
+
+.menu-btn{
+    background-color: #7adcf18e ;
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    top: 2rem;
+    left: 2rem;
+    border-radius:50%;
+}
+.menu{
+    background-color: #7adcf18e;
+    position: absolute;
+    height: 5rem;
+    min-width: 65rem;
+    width: 60%;
+    top: 2rem;
+    left: 25%;
+    border-radius: 1rem;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: scale-menu;
+}
+.scale-menu{
+    animation-name: scale-menu;
+    animation-duration: 0.3s;
+}
+@keyframes scale-menu {
+    0%{transform: scale(0.1);}
+    100%{ transform:scale(1)};
+}
+.menu-icon{
+    /* background-color: #10ac84; */
+    height: 4rem;
+    min-width: 2rem;
+    width: 4rem;
+}
+.menu-icon-burger{
+    display:none;
+}
+.menu-btn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-btn>*{
+    height: 2rem;
+    width: 2rem;
+}
+.pencil-options{
+    position: absolute;
+    background-color: #7adcf18e;
+    width: 5.5rem;
+    height: 14rem;
+    top: 5.5rem;
+    left: 5.7%;
+    display:none;
+    border-radius: 1rem;
+}
+
+.pencil-color{
+    /* border:1px solid black; */
+    height:100%;
+    width:70%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:0.2rem;
+}
+.color-box{
+    /* border:1px solid black; */
+    border-radius:0.5rem;
+    height:2.5rem;
+    width:2.5rem;
+}
+.black{background-color:black;}
+.red{background-color:red;}
+.blue{background-color:blue;}
+.green{background-color:green;}
+.yellow{background-color:yellow;}
+
+.pencil-thickness{
+    height:100%;
+    width:30%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+#pencil-thickness-range{
+    width :100%;
+    height: 90%;
+    -webkit-appearance: slider-vertical; /* WebKit */
+}
+.eraser-options{
+    position: absolute;
+    background-color: #7adcf18e;
+    width: 4.5rem;
+    height: 14rem;
+    top: 5.5rem;
+    left: 20.7%;
+    display:none;
+    border-radius: 1rem;
+}
+.eraser-thickness{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#eraser-thickness-range{
+    width :100%;
+    height: 90%;
+    -webkit-appearance: slider-vertical; /* WebKit */
+}
+.drop-down{
+    position: absolute;
+    height:2rem;
+    width: 2rem;
+    margin-right: 5rem;
+    cursor: pointer;
+}
+.pencil-drop-down{
+    left:4rem;
+    
+}
+.eraser-drop-down{
+    left:18.7%;
+}
+
+.sticky-note-container{
+    width: 100%;
+    height: 100%;
+}
+.sticky{
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+    /* width: 16rem; */
+    /* height: 15rem; */
+    position: absolute;
+    top: 14rem;
+    left: 50%;
+    /* border: 1px solid black; */
+}
+.sticky-id{
+    background-color: #7adcf18e;
+    width: 16rem;
+    height: 2.5rem;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:0.5rem;
+    padding-right: 0.5rem;
+    cursor: grab;
+    text-align: left;
+    font-family:'Courier New';
+    font-weight: bold;
+    color: gray;
+    /* border: 1px solid blue; */
+}
+.sticky-minimize{
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: rgb(125, 204, 125);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sticky-close{
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.sticky-media{
+    width: 16rem;
+    height: calc(15rem - 1.5rem);
+}
+.sticky-text{
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    font-size: 2rem;
+}
+.sticky-img{
+    width: 100%;
+    height: 100%;
+}
+
+/* d-125 - tiles (jains)
+b-61 - chemical waterproof (negi)
+9818530328 - rama shankar ji */

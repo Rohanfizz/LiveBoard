@@ -4,7 +4,7 @@ const socket = require('socket.io');
 const app = express();  // init and server ready
 app.use(express.static("public"));
 
-let port = 5000;
+let port = process.env.PORT || 5000;
 let server = app.listen(port, function() {
     console.log('asd');
 });

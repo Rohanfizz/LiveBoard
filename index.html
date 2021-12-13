@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="drawing-area"></div>
+        <canvas class="drawing-area"></canvas>
         <div class="menu-btn">
             <img class='menu-icon-burger' src="./icons/hamburger-menu.svg">
             <img class='menu-icon-cross' src="./icons/close-line.svg">
@@ -27,20 +27,20 @@
             <img class='menu-icon undo-btn' src="./icons/reply-arrow.svg">
             <img class='menu-icon redo-btn' src="./icons/forward-arrow.svg">
             <div class="pencil-options">
-                <div class="pencil-color">
-                    <div class="black color-box"></div>
-                    <div class="red color-box"></div>
-                    <div class="blue color-box"></div>
-                    <div class="green color-box"></div>
-                    <div class="yellow color-box"></div>
+                <div class="pencil-colors">
+                    <div class="black pencil-color"></div>
+                    <div class="red pencil-color"></div>
+                    <div class="blue pencil-color"></div>
+                    <div class="green pencil-color"></div>
+                    <div class="yellow pencil-color"></div>
                 </div>
                 <div class="pencil-thickness">
-                    <input type="range" id="pencil-thickness-range">
+                    <input type="range" id="pencil-width" min='2' max='10' value='3'>
                 </div>
             </div>
             <div class="eraser-options">
                 <div class="eraser-thickness">
-                    <input type="range" id="eraser-thickness-range">
+                    <input type="range" id="eraser-width" min='2' max='100' value='3'>
                 </div>
             </div>
         </div>
@@ -59,5 +59,6 @@
     </div>
     <script src="https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"></script>
     <script src="./script.js"></script>
+    <script src="./canvas.js"></script>
 </body>
 </html>

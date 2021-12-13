@@ -1,3 +1,4 @@
+let canvas = document.querySelector('.drawing-area');
 let menuBtn = document.querySelector('.menu-btn');
 let menuContainer = document.querySelector('.menu');
 let burgerIcon = document.querySelector('.menu-icon-burger')
@@ -20,6 +21,10 @@ let stickyNoteContainer = document.querySelector('.sticky-note-container');
 
 let uploadBtn = document.querySelector('.upload-btn');
 
+let downloadBtn = document.querySelector('.download-btn');
+
+let undoBtn = document.querySelector('.undo-btn');
+let redoBtn = document.querySelector('.redo-btn');
 
 let menuVisible = true;
 let pencilOptionVisible = false;
@@ -185,4 +190,12 @@ uploadBtn.addEventListener('click', (e)=> {
         close.addEventListener('click',closeFunction);
         stickyNoteContainer.appendChild(sticky);
     })
+})
+
+downloadBtn.addEventListener('click',(e)=>{
+    let url = canvas.toDataURL();
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = 'board.jpg';
+    a.click();
 })

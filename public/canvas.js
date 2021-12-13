@@ -30,19 +30,34 @@ tool.lineWidth =pencilWidth;
 // mousedown -> start new path, mousemove -> path fill (graphics)
 canvas.addEventListener('mousedown',(e) => {
     mouseDown = true;
-    beginPath({
+    // beginPath({
+    //     x: e.clientX, 
+    //     y: e.clientY
+    // });
+    let data = {
         x: e.clientX, 
         y: e.clientY
-    });
+    }
+    //send data to server
+    socket.emit("beginPath",data);
 })
 
 canvas.addEventListener('mousemove',(e) => {
     if(mouseDown) {
-        drawStroke({
+        let data = {
             x: e.clientX, 
-            y: e.clientY
-        })
+            y: e.clientY,
+            color: pencilIsActive ? pencilColor : eraserColor,
+            width: pencilIsActive ? pencilWidth : eraserWidth
+        }
+        socket.emit("drawStroke",data);
     }
+    // if(mouseDown) {
+    //     drawStroke({
+    //         x: e.clientX, 
+    //         y: e.clientY
+    //     })
+    // }
 })
 
 canvas.addEventListener('mouseup',(e) => {
@@ -62,6 +77,19 @@ function beginPath(strokeObj){
     tool.moveTo(strokeObj.x, strokeObj.y);
 }
 function drawStroke(strokeObj){
+    // if(pencilIsActive){
+    //     pencilColor = strokeObj.color;
+    //     tool.strokeStyle = pencilColor;
+
+    //     pencilWidth = pencilWidthElem.value;
+    //     tool.lineWidth = pencilWidth;
+    //     console.log(tool.lineWidth);
+    // }else{
+    //     eraserWidth = eraserWidthElem.value;
+    //     tool.lineWidth = eraserWidth;    
+    // }
+    tool.strokeStyle = strokeObj.color;
+    tool.lineWidth = strokeObj.width;
     tool.lineTo(strokeObj.x, strokeObj.y);
     tool.stroke();
 }
@@ -99,7 +127,8 @@ undoBtn.addEventListener('click',(e)=>{
         currState: currState,
         undoRedoTracker
     }
-    currentStateSetter(trackerObj);
+    // currentStateSetter(trackerObj);
+    socket.emit("redoUndo",trackerObj);
 })
 redoBtn.addEventListener('click',(e)=>{
     if(currState + 1 < undoRedoTracker.length) currState++;
@@ -107,7 +136,8 @@ redoBtn.addEventListener('click',(e)=>{
         currState: currState,
         undoRedoTracker
     }
-    currentStateSetter(trackerObj);
+    // currentStateSetter(trackerObj);
+    socket.emit("redoUndo",trackerObj);
 })
 
 function currentStateSetter(trackerObj){
@@ -130,3 +160,13 @@ document.addEventListener('keydown', function(event) {
         undoBtn.click();
     }
 });
+socket.on("beginPath",(data)=>{
+    // data = data from the server (digesting the information)
+    beginPath(data);
+})
+socket.on("drawStroke",(data)=>{
+    drawStroke(data);
+})
+socket.on("redoUndo",(data)=>{
+    currentStateSetter(data);  
+})
